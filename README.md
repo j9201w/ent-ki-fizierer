@@ -51,7 +51,12 @@ Sobald der Skill aktiv ist, kannst du ihn mit einfachen Befehlen steuern:
 
 ## 📜 Versionshistorie (Changelog)
 
-### v2.0.0 (Aktuelle Version) - *Das Blader-Format & Transparenz-Update*
+### v2.1.0 (Aktuelle Version) - *Das Grammatik- & Rechtschreib-Update*
+*   **Neu (Harte Regel):** Der finale Text folgt jetzt ausdrücklich durchgehend der amtlichen deutschen Rechtschreibung und Grammatik nach Duden (Groß-/Kleinschreibung, Kommasetzung, Kasus/Kongruenz, das/dass, ss/ß, Apostrophe). Bislang ergab sich Korrektheit nur implizit aus dem Modell; sie ist nun als nicht verhandelbare Vorgabe verankert.
+*   **Neu (Final-Pass-Check):** Vor der Ausgabe scannt der Skill zweifach – auf Em-/En-Dashes (wie bisher) und neu auf Grammatik-/Rechtschreibfehler, besonders an umgebauten Sätzen und aufgelösten Gedankenstrichen.
+*   **Klarstellung (`--casual`):** Umgangssprachliche Verkürzungen (*hab*, *gibt's*, *geht's*) gelten als gewolltes Register und nicht als Fehler.
+
+### v2.0.0 - *Das Blader-Format & Transparenz-Update*
 *   **Umbau (Architektur):** Die linguistischen Regeln (vormals Abschnitt 3) sind in einen modularen Muster-Katalog mit 23 nummerierten Einträgen überführt. Jeder Eintrag folgt dem Schema *Worauf achten / Problem / Vorher / Nachher* (angelehnt an das englische "humanizer"-Format). Inhaltlich bleibt jede Regel vollständig erhalten.
 *   **Neu (Transparente Ausgabe):** Statt nur des fertigen Textes gibt der Skill jetzt vier Teile aus: Entwurf (Draft), ein kurzes Selbst-Audit (*„Was klingt hier noch nach KI?“*), den finalen Text und eine knappe Änderungsliste.
 *   **Neu (Persönlichkeit & Seele):** Konditionales Modul, das lebendige menschliche Stimme einspritzt (Haltung, Rhythmus, Ich-Perspektive). Greift nur bei Blog-, Essay- und lockeren Texten und ist an den `--casual`-Modus gekoppelt; bei sachlichen, technischen oder juristischen Texten bleibt der Ton neutral.
