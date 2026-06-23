@@ -1,1 +1,10 @@
+# Betriebssystem-Dateien (braucht niemand im Repo)
+.DS_Store
+Thumbs.db
 
+# Entwicklungs-Müll & API-Schlüssel (Sicherheit!)
+.env
+*.log
+
+# Dein privater Spielplatz
+local_drafts/
