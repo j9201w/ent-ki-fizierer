@@ -47,7 +47,13 @@ Sobald der Skill aktiv ist, kannst du ihn mit einfachen Befehlen steuern:
 
 ## 📜 Versionshistorie (Changelog)
 
-### v1.4.1 (Aktuelle Version) - *Few-Shot-Erweiterung für Fachdaten*
+### v1.5.0 (Aktuelle Version) - *Architektur- & Kalibrierungs-Update*
+*   **Neu (Architektur):** Integration der "Voice Calibration" – Ermöglicht es dem Nutzer, eine eigene Schreibprobe einzureichen, deren Rhythmus, Wortwahl und Tonalität der Skill adaptiert[cite: 3, 4].
+*   **Neu (Qualitätssicherung):** Einführung des "Draft-Audit-Final"-Loops. Der Skill prüft den ersten Entwurf intern auf verbliebene KI-Muster, bevor das finale Ergebnis ausgegeben wird.
+*   **Neu (Schutzmechanismen):** "Anti-False-Positive"-Leitfaden – Verhindert, dass fachlich präzise oder seriöse Texte fälschlicherweise als "KI-Floskeln" entwertet werden[cite: 4].
+*   **Neu (Muster-Erkennung):** Erweiterung um fortgeschrittene strukturelle Indikatoren wie Scheinkorrelationen, Aphorismus-Formeln und staccatoartiges Drama[cite: 3, 4].
+
+### v1.4.1 - *Few-Shot-Erweiterung für Fachdaten*
 *   **Neu:** Drittes Few-Shot-Beispiel für komplexe SEO- und Fachtexte hinzugefügt. Es trainiert Claude gezielt darin, harte Daten (Zahlen, Prozentwerte) und Fachbegriffe bei gleichzeitig korrekter deutscher Typografie (`.` zu `,`) verlustfrei zu erhalten.
 
 ### v1.4.0 - *Informationsschutz- & Typografie-Update*
