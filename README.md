@@ -45,6 +45,12 @@ Sobald der Skill aktiv ist, kannst du ihn mit einfachen Befehlen steuern:
 
 ## 📜 Versionshistorie (Changelog)
 
+### v1.2.0 (Aktuelle Version) - *Linguistisches & Social-Media-Update*
+*   **Neu:** Integration von deutschen Modalpartikeln (`ja`, `doch`, `mal`), um Texten eine authentische menschliche Färbung zu geben (Linguistik-Standard).
+*   **Neu:** Anti-Emoji-Spam-Filter für sauberere Social-Media- und LinkedIn-Beiträge.
+*   **Neu:** Verbot von formelhaften KI-Einstiegsfragen (*"Kennst du das auch?"*).
+*   **Neu:** Bereinigung des bürokratischen "Corporate-Verb-Karussells" (*gewährleisten, vorantreiben*).
+
 ### v1.1.0 (Aktuelle Version) - *Copywriting & Marketing Extension*
 *   **Neu:** Integration professioneller Lektorats-Standards (basierend auf Wortliga & SEO-Copywriting-Leitfänden).
 *   **Neu:** Filter gegen hohle Marketing-Superlative (*bahnbrechend*, *revolutionär*).
