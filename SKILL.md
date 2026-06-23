@@ -1,3 +1,9 @@
+---
+name: "Ent-KI-fizierer"
+version: "1.5.0"
+purpose: "Transform AI-generated German text into natural, human-sounding copy."
+---
+
 # SKILL: ent-ki-fizierer (Linguistischer KI-Floskel-Filter & Stil-Kloner) - v1.5.1
 
 ## 1. ROLLENDEFINITION & ARCHITEKTUR
