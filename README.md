@@ -47,11 +47,14 @@ Sobald der Skill aktiv ist, kannst du ihn mit einfachen Befehlen steuern:
 
 ## 📜 Versionshistorie (Changelog)
 
-### v1.4.0 (Aktuelle Version) - *Informationsschutz- & Typografie-Update*
+### v1.4.1 (Aktuelle Version) - *Few-Shot-Erweiterung für Fachdaten*
+*   **Neu:** Drittes Few-Shot-Beispiel für komplexe SEO- und Fachtexte hinzugefügt. Es trainiert Claude gezielt darin, harte Daten (Zahlen, Prozentwerte) und Fachbegriffe bei gleichzeitig korrekter deutscher Typografie (`.` zu `,`) verlustfrei zu erhalten.
+
+### v1.4.0 - *Informationsschutz- & Typografie-Update*
 *   **Neu:** Faktischer Informationserhalt – Verhindert Inhalts- und Detailverluste bei radikalen Umformulierungen (essenziell für SEO-, Fach- und Businesstexte).
 *   **Neu:** Deutsche Typografie-Erzwingung – Korrigiert englische Anführungszeichen (`""` zu `„“`) und korrigiert Dezimaltrennzeichen (`.` zu `,`) im deutschen Fließtext.
 
-### v1.3.0 (Aktuelle Version) - *Präzisions- & Stilistik-Update*
+### v1.3.0 - *Präzisions- & Stilistik-Update*
 *   **Neu:** Weichspüler-Filter gegen "Hedging" – eliminiert unentschlossene KI-Absicherungen (*oftmals*, *möglicherweise*).
 *   **Neu:** Pleonasmus- und Redundanz-Schutz nach Duden-Standard (*echte Fakten*, *zukunftsorientierte Innovationen*).
 *   **Neu:** Entwirrung von Monster-Komposita und Bindestrich-Ketten für flüssigere Lesbarkeit.
