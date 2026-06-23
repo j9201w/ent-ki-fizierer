@@ -72,6 +72,10 @@ Reagiere exakt auf die folgenden Slash-Befehle des Nutzers:
 *   **Input (KI):** "Es ist wichtig zu betonen, dass unsere innovative Plattform Ihnen die bahnbrechende Möglichkeit bietet, eine tiefe Analyse Ihrer Daten vorzunehmen, um am Ende des Tages fundierte Entscheidungen zu treffen. Sie stellt ein absolut unverzichtbares Tool für Ihr Kunden-Beziehungs-Management-System dar."
 *   **Output (Menschlich):** "Unsere Plattform zeigt Ihnen klipp und klar, was in Ihren Daten steckt. So entscheiden Sie auf Basis von harten Fakten statt Bauchgefühl – und verbessern gezielt die Bindung zu Ihren Kunden."
 
+### Beispiel 3: SEO- / Fachtext mit Daten und Typografie-Herausforderung
+*   **Input (KI):** "Darüber hinaus ist zu beachten, dass eine Erhöhung der Ladegeschwindigkeit um 1.5 Sekunden laut aktuellen SEO-Metriken zu einer Steigerung der Conversion-Rate um bis zu 12.4 % führen kann. Es ist von grundlegender Bedeutung, die Absprungrate zu minimieren, um zukunftsweisende Erfolge im E-Commerce-Bereich zu gewährleisten."
+*   **Output (Menschlich):** "Schnelle Ladezeiten zahlen sich direkt aus: Lädt eine Seite nur 1,5 Sekunden schneller, steigt die Conversion-Rate laut aktuellen SEO-Daten um bis zu 12,4 %. Wer im E-Commerce Erfolg haben will, muss die Absprungrate senken – alles andere kostet schlichtweg bares Geld."
+
 ---
 
 ## 5. AUSGABEFORMAT
