@@ -1,6 +1,6 @@
 ---
 name: ent-ki-fizierer
-version: 2.0.0
+version: 2.1.0
 description: |
   Entfernt die typischen Merkmale KI-generierter deutscher Texte (LLM-Deutsch) und
   macht sie natürlich und menschlich. Einsetzen, wann immer ein deutscher Text
@@ -34,6 +34,7 @@ Wenn dir ein Text übergeben wird:
 2. **Umschreiben, nicht löschen.** Ersetze KI-Floskeln durch natürliche Alternativen und decke alles ab, was das Original abdeckt. Hat das Original fünf Absätze, hat die Umschrift fünf Absätze. Du kürzt Floskeln, nicht Substanz.
 3. **Informationen absolut erhalten (oberste Priorität).** Die stilistische Reinigung darf niemals Fakten, Zahlen, Daten, Eigennamen, Fachbegriffe oder SEO-Keywords verlieren. Stil optimiert die Form, nicht den Inhalt.
 4. **Die Stimme treffen.** Passe dich dem gewünschten Register an (sachlich, locker, formal). Persönlichkeit nur dort einspritzen, wo Inhalt und Autorenstimme es verlangen (siehe PERSÖNLICHKEIT UND SEELE).
+5. **Grammatik & Rechtschreibung (harte Regel, nicht verhandelbar).** Der finale Text folgt durchgehend der aktuellen amtlichen deutschen Rechtschreibung und Grammatik (Duden): korrekte Groß-/Kleinschreibung, Kommasetzung, Kasus und Kongruenz, das/dass, seit/seid, ss/ß, Getrennt- und Zusammenschreibung, keine fehlplatzierten Apostrophe. Das gilt auch im `--casual`-Modus: Umgangssprachliche Verkürzungen (*hab, gibt's, geht's, werd*) sind als Register **erlaubt**; Rechtschreib- und Grammatikfehler sind es **nicht**. Achte besonders darauf beim Auflösen von Gedankenstrichen und beim Umbau von Sätzen, denn dort entstehen leicht neue Komma- oder Bezugsfehler.
 
 Der Draft-→-Audit-→-Final-Loop und das Ausgabeformat sind unter „Prozess und Ausgabe" definiert.
 
@@ -275,8 +276,8 @@ Wenn ein Text übergeben wird, durchläufst du diese Schritte und **gibst alle v
 
 1. **Kalibrierungs-Pass (optional).** Falls eine Schreibprobe vorliegt, scanne sie zuerst (siehe Stil-Kalibrierung). Nicht im Chat ausgeben.
 2. **Draft (Entwurf).** Schreibe eine vollständige Umformulierung auf Basis aller Muster und der Erkennungs-Hinweise. Prüfe: Liest sie sich laut natürlich? Variiert die Satzlänge? Stimmt die Typografie? Stimmt das Register (Du/Sie, Perfekt im `--casual`)?
-3. **Audit (Selbstprüfung).** Frage dich: *„Was klingt an diesem Entwurf immer noch verdächtig nach KI?"* Antworte mit kurzen Stichpunkten zu verbliebenen Rhythmus-Monotonien, verdeckten Floskeln oder typografischen Rückständen.
-4. **Final.** Korrigiere die im Audit gefundenen Schwächen. Der finale Text enthält **keine** Em- oder En-Dashes (siehe Muster 18). Scanne ihn vor der Ausgabe.
+3. **Audit (Selbstprüfung).** Frage dich: *„Was klingt an diesem Entwurf immer noch verdächtig nach KI?"* Antworte mit kurzen Stichpunkten zu verbliebenen Rhythmus-Monotonien, verdeckten Floskeln oder typografischen Rückständen. Prüfe im selben Schritt auf neu entstandene Grammatik- und Rechtschreibfehler, vor allem dort, wo du Sätze umgebaut oder Gedankenstriche aufgelöst hast.
+4. **Final.** Korrigiere die im Audit gefundenen Schwächen. Scanne den Text vor der Ausgabe zweifach: (a) auf Em-/En-Dashes — er enthält **keine** (siehe Muster 18); (b) auf Grammatik und Rechtschreibung — Groß-/Kleinschreibung, Kommasetzung, Kasus/Kongruenz, das/dass, ss/ß, Apostrophe. Der finale Text ist nach amtlicher deutscher Rechtschreibung fehlerfrei (siehe „Deine Aufgabe", Punkt 5). Umgangssprachliche Verkürzungen im `--casual`-Modus sind dabei kein Fehler.
 
 Liefere danach optional eine kurze **Änderungsliste** (1–3 Sätze, was du entfernt hast).
 
