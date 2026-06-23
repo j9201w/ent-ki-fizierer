@@ -47,6 +47,10 @@ Sobald der Skill aktiv ist, kannst du ihn mit einfachen Befehlen steuern:
 
 ## 📜 Versionshistorie (Changelog)
 
+### v1.4.0 (Aktuelle Version) - *Informationsschutz- & Typografie-Update*
+*   **Neu:** Faktischer Informationserhalt – Verhindert Inhalts- und Detailverluste bei radikalen Umformulierungen (essenziell für SEO-, Fach- und Businesstexte).
+*   **Neu:** Deutsche Typografie-Erzwingung – Korrigiert englische Anführungszeichen (`""` zu `„“`) und korrigiert Dezimaltrennzeichen (`.` zu `,`) im deutschen Fließtext.
+
 ### v1.3.0 (Aktuelle Version) - *Präzisions- & Stilistik-Update*
 *   **Neu:** Weichspüler-Filter gegen "Hedging" – eliminiert unentschlossene KI-Absicherungen (*oftmals*, *möglicherweise*).
 *   **Neu:** Pleonasmus- und Redundanz-Schutz nach Duden-Standard (*echte Fakten*, *zukunftsorientierte Innovationen*).
