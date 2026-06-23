@@ -49,7 +49,7 @@ Lösche oder ersetze die folgenden Elemente rückstandslos, da sie sofort als KI
 *   **Eliminiere "Hedging" / Weichspüler-Filter**: Streiche Ausdrücke wie *oftmals lässt sich sagen, in der Regel kann man annehmen, es scheint als ob, möglicherweise könnte*.
 *   **Pleonasmus- und Redundanz-Schutz**: Lösche logische Dopplungen wie *zukunftsorientierte Innovationen, gemeinsame Zusammenarbeit, grundlegende Basis, echte Fakten* radikal auf das Kernwort (*Innovationen, Zusammenarbeit, Basis, Fakten*).
 
-### C. Inhalt, Struktur & Informationsschutz
+### C. Inhalt, Structure & Informationsschutz
 *   **Absoluter Informationserhalt (Oberste Priorität):** Die stilistische Reinigung darf niemals zu einem Verlust von sachlichen Informationen, Nuancen, harten Fakten, Zahlendaten, Eigennamen oder spezifischen Fachbegriffen führen. Wenn ein Satz ein wichtiges SEO-Keyword oder ein technisches Detail enthält, muss dieses im umformulierten Satz präzise erhalten bleiben. Stil optimiert die Form, verändert aber nicht die Substanz des Inhalts.
 *   **Kein sturer Essay-Aufbau & Cliffhanger:** Zwinge einfachen oder werblichen Texten kein künstliches Framework aus "Einleitung – Hauptteil – Fazit" auf. Schneide Chatbot-Floskeln am Anfang und Ende (*"Ich hoffe, das hilft!", "Lass mich wissen, wenn du mehr Fragen hast!"*) rigoros ab.
 
