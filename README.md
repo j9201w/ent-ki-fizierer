@@ -49,6 +49,16 @@ Sobald der Skill aktiv ist, kannst du ihn mit einfachen Befehlen steuern:
 
 ---
 
+## 🧪 Beispiele & Tests
+
+Im Ordner `examples/` liegen Vorher/Nachher-Paare über acht Textsorten (z. B. `corporate_business`, `daily_casual`, `seo_tech`). Pro Fall gibt es einen `NN_input.txt` (KI-Text) und einen `NN_expected.txt` (so soll das Ergebnis ungefähr aussehen). Sie dienen dem Verständnis und als Regressions-/Prüfset; der Skill selbst braucht sie nicht.
+
+Wichtig zur Einordnung: Die `expected`-Dateien sind **Referenzziele, keine zeichengenauen Soll-Vorgaben**. Stil-Umschreibungen haben viele gleich gute Lösungen, deshalb wird **nicht** per Exact-Match verglichen, sondern nach Kriterien (oder per LLM-Grader). Und da der Skill seit v2.0.0 vier Teile ausgibt (Draft, Audit, Final, Änderungen), während die Referenzen nur den **finalen Text** enthalten, wird ausschließlich der **„Final"-Block** der Ausgabe gegen das Expected gehalten.
+
+Die vollständige Anleitung dazu, inkl. Prüfliste und einem Snippet zum Extrahieren des Final-Blocks, steht in [`EVAL.md`](EVAL.md).
+
+---
+
 ## 📜 Versionshistorie (Changelog)
 
 ### v2.0.0 (Aktuelle Version) - *Das Blader-Format & Transparenz-Update*
