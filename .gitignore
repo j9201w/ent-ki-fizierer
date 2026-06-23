@@ -1,0 +1,14 @@
+# --- Betriebssystem-Müll (wichtig, falls du Dateien vom PC hochlädst) ---
+.DS_Store
+Thumbs.db
+
+# --- Editor-Einstellungen (falls du VS Code oder ähnliches nutzt) ---
+.vscode/
+.idea/
+
+# --- Dein privates Testlabor (Dateischutz) ---
+# Jede Datei, die das Wort "privat" oder "scratchpad" im Namen hat, 
+# wird von GitHub ignoriert. Perfekt für echte Kundendaten, die du testen willst!
+*privat*
+*scratchpad*
+*.tmp
