@@ -47,7 +47,11 @@ Sobald der Skill aktiv ist, kannst du ihn mit einfachen Befehlen steuern:
 
 ## 📜 Versionshistorie (Changelog)
 
-### v1.5.0 (Aktuelle Version) - *Architektur- & Kalibrierungs-Update*
+### v1.5.1 (Aktuelle Version) - *Das Konsistenz- & Typografie-Fix*
+*   **Fix (Few-Shot-Beispiele):** Die Ausgaben im Bereich der Few-Shot-Beispiele (Abschnitt 6) wurden korrigiert. Die restriktive Gedankenstrich-Sperre wird nun auch in den menschlichen Beispiel-Outputs fehlerfrei eingehalten.
+*   **Fix (Nomenklatur):** Die Bezeichnungen der einzelnen Phasen innerhalb der gesamten Systemarchitektur wurden im gesamten Dokument vollständig auf eine einheitliche vierteilige Kette synchronisiert (*Kalibrierungs-, Draft-, Audit- und Final-Pass*).
+
+### v1.5.0 - *Architektur- & Kalibrierungs-Update*
 *   **Neu (Architektur):** Integration der "Voice Calibration" – Ermöglicht es dem Nutzer, eine eigene Schreibprobe einzureichen, deren Rhythmus, Wortwahl und Tonalität der Skill adaptiert[cite: 3, 4].
 *   **Neu (Qualitätssicherung):** Einführung des "Draft-Audit-Final"-Loops. Der Skill prüft den ersten Entwurf intern auf verbliebene KI-Muster, bevor das finale Ergebnis ausgegeben wird.
 *   **Neu (Schutzmechanismen):** "Anti-False-Positive"-Leitfaden – Verhindert, dass fachlich präzise oder seriöse Texte fälschlicherweise als "KI-Floskeln" entwertet werden[cite: 4].
