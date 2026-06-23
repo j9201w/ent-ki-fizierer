@@ -2,7 +2,7 @@
 
 Ein spezialisierter Skill für Anthropic Claude, der KI-generierte, hölzerne deutsche Texte in lebendiges, natürliches und authentisches Deutsch verwandelt. 
 
-Im Gegensatz zu englischen Standard-Tools bekämpft dieser Skill gezielt die spezifischen Muster des "LLM-Deutschs". Das Fundament bilden die empirischen Beobachtungen des deutschen Wikipedia-AI-Cleanups, kombiniert mit professionellen Copywriting- und SEO-Lektorats-Standards (z. B. Wortliga).
+Im Gegensatz zu englischen Standard-Tools bekämpft dieser Skill gezielt die spezifischen Muster des "LLM-Deutschs". Das Fundament bilden die empirischen Beobachtungen des deutschen Wikipedia-AI-Cleanups, kombiniert mit professionellen Copywriting-, SEO- und Stilistik-Standards (z. B. Wortliga, Duden-Stilkritik).
 
 ## 🚀 Funktionsweise
 
@@ -10,11 +10,13 @@ Der Skill analysiert den eingegebenen Text auf typische KI-Indikatoren, filtert 
 
 ### Was der Skill korrigiert:
 *   **Nominalstil-Konvertierung:** Macht aus starren Substantiv-Ketten (*"Die Durchführung der Optimierung..."*) aktive Verben (*"Wir optimieren..."*).
-*   **Phrasen- & Metaphern-Blacklist:** Eliminiert LLM-Floskeln (*„Darüber hinaus“*, *„Des Weiteren“*) sowie abgenutzte KI-Sprachbilder (*„Der Schlüssel zum Erfolg“*, *„Das Fundament legen“*).
-*   **Hohle Superlative:** Streicht inhaltsleere Buzzwords wie *bahnbrechend*, *revolutionär* oder *nahtlos* und zwingt Claude zu konkreten Fakten.
-*   **Rhythmus-Bruch:** Zerschlägt monotone Satzlängen und sorgt für einen dynamischen, menschlichen Lesefluss.
+*   **Phrasen- & Metaphern-Blacklist:** Eliminiert LLM-Floskeln (*„Darüber hinaus“*) sowie abgenutzte KI-Sprachbilder (*„Der Schlüssel zum Erfolg“*).
+*   **Hohle Superlative & Bürokratie-Verben:** Streicht inhaltsleere Buzzwords (*bahnbrechend*, *nahtlos*) und ersetzt steife Verben (*gewährleisten*, *vorantreiben*) durch echte Aktion.
+*   **Rhythmus-Bruch & Modalpartikeln:** Zerschlägt monotone Satzlängen und streut organisch deutsche Modalpartikeln (*ja*, *doch*, *mal*) ein, um den Text menschlich klingen zu lassen.
 *   **Fehlübersetzungen (False Friends):** Korrigiert typische, aus dem Englischen übernommene KI-Muster wie *„Am Ende des Tages“* oder *„Sinn machen“*.
-*   **Aktivierung:** Transformiert passive Distanzformulierungen und das unpersönliche Pronomen "man" in direkte Aktivsätze.
+*   **Weichspüler- & Redundanz-Filter:** Eliminiert unsicheres "Hedging" (*oftmals*, *möglicherweise*) sowie statistische Dopplungen (*echte Fakten*, *gemeinsame Zusammenarbeit*).
+*   **Komposita- & Gender-Korrektur:** Entwirrt unleserliche Bindestrich-Monster-Wörter und erzwingt ein konsistentes, fehlerfreies Gendersystem ohne stilistische Brüche.
+*   **Social-Media-Optimierung:** Verhindert nervige, formelhafte KI-Einstiegsfragen (*„Kennst du das auch?“*) und stoppt die typische Emoji-Inkontinenz (symmetrische Emoji-Listen).
 
 ---
 
@@ -38,21 +40,27 @@ Kopiere den Inhalt der `SKILLS.md` und füge ihn vor deinem eigentlichen Text mi
 Sobald der Skill aktiv ist, kannst du ihn mit einfachen Befehlen steuern:
 
 *   `/entkifizieren [Dein Text]` – Transformiert den Text standardmäßig in ein natürliches, professionelles Deutsch (im passenden Du/Sie-Format des Ausgangstextes).
-*   `/entkifizieren --casual [Dein Text]` – Transformiert den Text in ein lockeres, nahbares "Du" (perfekt für Blogs und moderne Texte).
+*   `/entkifizieren --casual [Dein Text]` – Transformiert den Text in ein lockeres, nahbares "Du" (perfekt für LinkedIn, Blogs und Social Media).
 *   `/entkifizieren --formal [Dein Text]` – Transformiert den Text in ein seriöses, elegantes "Sie" (für Business, Behörden oder formelle E-Mails).
 
 ---
 
 ## 📜 Versionshistorie (Changelog)
 
-### v1.2.0 (Aktuelle Version) - *Linguistisches & Social-Media-Update*
+### v1.3.0 (Aktuelle Version) - *Präzisions- & Stilistik-Update*
+*   **Neu:** Weichspüler-Filter gegen "Hedging" – eliminiert unentschlossene KI-Absicherungen (*oftmals*, *möglicherweise*).
+*   **Neu:** Pleonasmus- und Redundanz-Schutz nach Duden-Standard (*echte Fakten*, *zukunftsorientierte Innovationen*).
+*   **Neu:** Entwirrung von Monster-Komposita und Bindestrich-Ketten für flüssigere Lesbarkeit.
+*   **Neu:** Durchsetzung einer konsistenten, fehlerfreien Gender-Stilistik über den gesamten Text.
+
+### v1.2.0 - *Linguistisches & Social-Media-Update*
 *   **Neu:** Integration von deutschen Modalpartikeln (`ja`, `doch`, `mal`), um Texten eine authentische menschliche Färbung zu geben (Linguistik-Standard).
 *   **Neu:** Anti-Emoji-Spam-Filter für sauberere Social-Media- und LinkedIn-Beiträge.
 *   **Neu:** Verbot von formelhaften KI-Einstiegsfragen (*"Kennst du das auch?"*).
-*   **Neu:** Bereinigung des bürokratischen "Corporate-Verb-Karussells" (*gewährleisten, vorantreiben*).
+*   **Neu:** Bereinigung des bürokratischen "Corporate-Verb-Karussells" (*gewährleisten*, *vorantreiben*).
 
-### v1.1.0 (Aktuelle Version) - *Copywriting & Marketing Extension*
-*   **Neu:** Integration professioneller Lektorats-Standards (basierend auf Wortliga & SEO-Copywriting-Leitfänden).
+### v1.1.0 - *Copywriting & Marketing Extension*
+*   **Neu:** Integration professioneller Lektorats-Standards (basierend auf Wortliga & SEO-Copywriting-Leitfäden).
 *   **Neu:** Filter gegen hohle Marketing-Superlative (*bahnbrechend*, *revolutionär*).
 *   **Neu:** Korrektur von typischen Übersetzungsfehlern aus dem Englischen (*"Am Ende des Tages"*, *"Sinn machen"*).
 *   **Neu:** Harte Transformation von passiven Distanzformulierungen und dem unpersönlichen "man" in direkte Aktivsätze.
