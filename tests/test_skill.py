@@ -2,7 +2,7 @@ import os
 import sys
 import anthropic
 
-# 1. API-Key aus den sicheren GitHub-Umgebungsvariablen laden
+# 1. API-Key laden
 api_key = os.environ.get("ANTHROPIC_API_KEY")
 if not api_key:
     print("❌ Fehler: ANTHROPIC_API_KEY fehlt!")
@@ -10,12 +10,12 @@ if not api_key:
 
 client = anthropic.Anthropic(api_key=api_key)
 
-# 2. Deine SKILL.md einlesen
+# 2. SKILL.md einlesen
 try:
     with open("SKILL.md", "r", encoding="utf-8") as f:
         system_prompt = f.read()
 except FileNotFoundError:
-    print("❌ Fehler: SKILL.md wurde im Hauptverzeichnis nicht gefunden.")
+    print("❌ Fehler: SKILL.md wurde nicht gefunden.")
     sys.exit(1)
 
 # 3. Alle 7 Testfälle voll integriert
@@ -60,11 +60,9 @@ test_cases = [
 failed = False
 print("🚀 Starte kombinierten Struktur- und Inhaltstest für den Ent-KI-fizierer...\n")
 
-# 4. Testschleife startet
 for test in test_cases:
     print(f"Prüfe Testfall: '{test['name']}'...")
     try:
-        # Anfrage an das neue Claude Sonnet 4.6 Modell senden
         message = client.messages.create(
             model="claude-sonnet-4-6",
             max_tokens=1200,
@@ -73,7 +71,7 @@ for test in test_cases:
         )
         output = message.content[0].text
         
-        # --- PHASE 1: STRUKTUR-TEST (Loop-Überwachung) ---
+        # --- STRUKTUR-TEST (Loop-Überwachung) ---
         has_draft = "**Draft:**" in output or "Draft:" in output
         has_final = "**Final:**" in output or "Final:" in output
         
@@ -83,7 +81,7 @@ for test in test_cases:
             failed = True
             continue
             
-        # --- PHASE 2: EXTRAKTION (Wir isolieren den finalen Part) ---
+        # --- EXTRAKTION (Wir isolieren den finalen Part) ---
         if "**Final:**" in output:
             final_part = output.split("**Final:**")[1]
         else:
@@ -95,7 +93,7 @@ for test in test_cases:
         elif "Änderungen:" in final_part:
             final_part = final_part.split("Änderungen:")[0]
 
-        # --- PHASE 3: INHALTS-TEST (Nur auf das saubere Finale!) ---
+        # --- INHALTS-TEST (Nur auf das saubere Finale!) ---
         found_forbidden = [word for word in test["forbidden"] if word.lower() in final_part.lower()]
         
         if found_forbidden:
@@ -110,7 +108,6 @@ for test in test_cases:
         print(f"❌ API-Fehler bei Test '{test['name']}': {e}\n")
         failed = True
 
-# 5. Ergebnis an GitHub zurückmelden
 if failed:
     print("💥 Einige Tests sind fehlgeschlagen. Bitte überprüfe deine SKILL.md!")
     sys.exit(1)
