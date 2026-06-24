@@ -21,6 +21,8 @@ Seit Version 2.0.0 ist der Skill als modularer Muster-Katalog aufgebaut (nummeri
 *   **Social-Media-Optimierung:** Verhindert nervige, formelhafte KI-Einstiegsfragen (*„Kennst du das auch?“*) und stoppt die typische Emoji-Inkontinenz (symmetrische Emoji-Listen).
 *   **Synonym-Cycling, Scheinanalysen & Schein-Tiefe:** Stoppt das nervöse Umbenennen derselben Sache, entfernt nachgestellte Partizip-I-Floskeln (*widerspiegelnd*, *unterstreichend*) und entlarvt Pseudo-Tiefe-Gesten (*„im Kern“*) sowie unechte „von … bis“-Spektren.
 
+*   **Copula-Vermeidung & Schein-Belege:** Ersetzt zeremonielle Umschreibungen (*fungiert als*, *stellt … dar*) durch ein klares „ist“, bricht reflexhafte Dreierfiguren auf und entlarvt quellenlose Autoritäts-Floskeln (*Experten sind sich einig*).
+
 > **Zusätzlich (nur bei lockeren Texten):** Über das Modul „Persönlichkeit & Seele" spritzt der Skill auf Wunsch echte menschliche Stimme ein (Haltung, Rhythmus-Wechsel, Ich-Perspektive), statt nur Floskeln zu entfernen. Dieses Modul ist an den `--casual`-Modus gekoppelt und bleibt bei sachlichen, technischen oder formellen Texten bewusst inaktiv.
 
 ---
@@ -52,7 +54,15 @@ Sobald der Skill aktiv ist, kannst du ihn mit einfachen Befehlen steuern:
 
 ## 📜 Versionshistorie (Changelog)
 
-### v2.2.0 (Aktuelle Version) - *Das Pattern-Parity-Update*
+### v2.3.0 (Aktuelle Version) - *Das Deutsch-Schliff-Update*
+*   **Neu (3 Muster, von 28 auf 31):** Gezielt die deutsch-relevanten Tells aus dem Blader-Abgleich nachgezogen, die bislang fehlten:
+    *   **Copula-Vermeidung** (Muster 10): „fungiert als / stellt … dar“ statt schlichtem „ist/sind“.
+    *   **Erzwungene Dreierfiguren** (Muster 11): reflexhafte „X, Y und Z“-Triaden im Fließtext (abgegrenzt von der Listen-Symmetrie, Muster 5).
+    *   **Vage Quellen-Zuschreibung** (Muster 22): „Experten sind sich einig / Studien zeigen“ ohne konkreten Beleg.
+*   **Bewusst ausgelassen:** Notability-/Medien-Inflation und Knowledge-Cutoff-Disclaimer (reine Wikipedia- bzw. Chat-Artefakte ohne Relevanz für die Zieltexte) sowie Significance- und „Herausforderungen“-Sektionen (bereits über Muster 16/17/29 abgedeckt).
+*   **Geändert (Nummerierung):** Katalog auf 1 bis 31 durchnummeriert; Querverweise angepasst (Hedging jetzt Muster 18, Dash-Sperre Muster 25). Die Tests wachsen auf 15 Fälle.
+
+### v2.2.0 - *Das Pattern-Parity-Update*
 *   **Neu (5 Muster, von 23 auf 28):** Der Katalog schließt zu den sprachunabhängigen KI-Tells auf, die bislang fehlten, einsortiert in ihre Kategorien (A/B/D):
     *   **Elegante Variation / Synonym-Cycling** (Muster 8): das krampfhafte Umbenennen derselben Entität über Synonym-Ketten (*Protagonist … Hauptfigur … Held*).
     *   **Scheinanalysen mit Partizip I** (Muster 9): nachgestellte „-end“-Phrasen, die Tiefe simulieren (das deutsche Pendant zum englischen „-ing“-Muster).
