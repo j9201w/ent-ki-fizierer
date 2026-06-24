@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import anthropic
 
@@ -18,7 +19,7 @@ except FileNotFoundError:
     print("❌ Fehler: SKILL.md wurde nicht gefunden.")
     sys.exit(1)
 
-# 3. Alle 15 Testfälle voll integriert
+# 3. Alle 22 Testfälle voll integriert
 test_cases = [
     {
         "name": "Hohle Marketing-Superlative",
@@ -98,6 +99,44 @@ Wenn eine Seite zu langsam lädt, springen Nutzer ab und kommen nicht wieder."""
         "name": "Vage Quellen- und Autoritäts-Zuschreibung",
         "input": "Experten sind sich einig, dass dieser Ansatz die Zukunft ist. Studien zeigen, dass Nutzer ihn klar bevorzugen.",
         "forbidden": ["Experten sind sich einig", "Studien zeigen"]
+    },
+    {
+        "name": "Storytelling-Floskeln & theatralische Haken (Muster 13)",
+        "input": "Tauchen wir ein in die Welt der Datenanalyse. Ehrlich gesagt? Sie ist ziemlich wichtig.",
+        "forbidden": ["Tauchen wir ein in", "Ehrlich gesagt?"]
+    },
+    {
+        "name": "Abgenutzte Metaphern (Muster 17)",
+        "input": "Klare Kommunikation ist der Schlüssel zum Erfolg und das Herzstück jedes guten Teams.",
+        "forbidden": ["Schlüssel zum Erfolg", "Herzstück"]
+    },
+    {
+        "name": "Hedging / Weichspüler (Muster 18)",
+        "input": "Möglicherweise könnte man unter Umständen annehmen, dass die Maßnahme in der Regel wirkt.",
+        "forbidden": ["Möglicherweise könnte man", "unter Umständen", "in der Regel"]
+    },
+    {
+        "name": "Pleonasmus & Redundanz (Muster 19)",
+        "input": "Unsere gemeinsame Zusammenarbeit schafft eine grundlegende Basis für zukunftsorientierte Innovationen.",
+        "forbidden": ["gemeinsame Zusammenarbeit", "grundlegende Basis"]
+    },
+    {
+        "name": "Englische/gerade Anführungszeichen (Muster 23)",
+        "input": "Er nannte es einen \"vollen Erfolg\" und blieb fest dabei.",
+        "forbidden": ["\"vollen Erfolg\""]
+    },
+    {
+        "name": "Modalpartikeln im Casual-Modus (Muster 6)",
+        "command": "/entkifizieren --casual",
+        "input": "Das ist nicht einfach, aber es funktioniert trotzdem zuverlässig.",
+        "required_any": ["ja", "doch", "halt", "eben", "schon", "wohl", "mal"]
+    },
+    {
+        "name": "Präteritum→Perfekt im Casual-Modus (Muster 7)",
+        "command": "/entkifizieren --casual",
+        "input": "Ich ging gestern ins Büro und sah, dass niemand da war.",
+        "forbidden": ["Ich ging", "und sah"],
+        "required_any": ["gegangen", "gesehen"]
     }
 ]
 
@@ -107,11 +146,16 @@ print("🚀 Starte kombinierten Struktur- und Inhaltstest für den Ent-KI-fizier
 for test in test_cases:
     print(f"Prüfe Testfall: '{test['name']}'...")
     try:
+        # Optionaler Slash-Befehl (z. B. --casual) wird dem Text vorangestellt
+        if test.get("command"):
+            user_content = test["command"] + "\n\n" + test["input"]
+        else:
+            user_content = test["input"]
         message = client.messages.create(
             model="claude-sonnet-4-6",
             max_tokens=1200,
             system=system_prompt,
-            messages=[{"role": "user", "content": test["input"]}]
+            messages=[{"role": "user", "content": user_content}]
         )
         output = message.content[0].text
         
@@ -138,15 +182,31 @@ for test in test_cases:
             final_part = final_part.split("Änderungen:")[0]
 
         # --- INHALTS-TEST (Nur auf das saubere Finale!) ---
-        found_forbidden = [word for word in test["forbidden"] if word.lower() in final_part.lower()]
-        
-        if found_forbidden:
+        # a) Verbotene Muster dürfen NICHT im Finale stehen (Teilstring-Prüfung)
+        found_forbidden = [word for word in test.get("forbidden", []) if word.lower() in final_part.lower()]
+
+        # b) Bei Transform-/Hinzufüge-Mustern muss MINDESTENS eines der erwarteten
+        #    Wörter auftauchen. Wortgrenzen-Prüfung (\b) verhindert Fehltreffer
+        #    wie "ja" in "Januar" oder "mal" in "normal".
+        required_any = test.get("required_any", [])
+        required_ok = True
+        if required_any:
+            required_ok = any(
+                re.search(r"\b" + re.escape(word) + r"\b", final_part, re.IGNORECASE)
+                for word in required_any
+            )
+
+        if found_forbidden or not required_ok:
             print(f"❌ FEHLGESCHLAGEN!")
             print(f"   -> Finaler Text: {final_part.strip()}")
-            print(f"   -> Fehler: Folgende KI-Muster wurden im FINALE nicht entfernt: {found_forbidden}\n")
+            if found_forbidden:
+                print(f"   -> Nicht entfernt: {found_forbidden}")
+            if not required_ok:
+                print(f"   -> Kein erwartetes Muster gefunden (mind. eines nötig): {required_any}")
+            print()
             failed = True
         else:
-            print(f"✅ ERFOLGREICH! Struktur eingehalten und Finale ist absolut sauber.\n")
+            print(f"✅ ERFOLGREICH! Struktur eingehalten und Finale ist sauber.\n")
             
     except Exception as e:
         print(f"❌ API-Fehler bei Test '{test['name']}': {e}\n")
@@ -156,5 +216,5 @@ if failed:
     print("💥 Einige Tests sind fehlgeschlagen. Bitte überprüfe deine SKILL.md!")
     sys.exit(1)
 else:
-    print("🎉 Perfekt! Alle 15 Tests bestanden. Struktur steht und das Finale ist KI-frei.")
+    print("🎉 Perfekt! Alle 22 Tests bestanden. Struktur steht und das Finale ist KI-frei.")
     sys.exit(0)
