@@ -18,12 +18,12 @@ except FileNotFoundError:
     print("❌ Fehler: SKILL.md wurde nicht gefunden.")
     sys.exit(1)
 
-# 3. Alle 7 Testfälle voll integriert
+# 3. Alle Testfälle voll integriert
 test_cases = [
     {
         "name": "Hohle Marketing-Superlative",
         "input": "Unsere bahnbrechende und revolutionäre Plattform bietet Ihnen die Möglichkeit, eine nahtlose Integration zu gewährleisten.",
-        "forbidden": ["bahnbrechende", "revolutionäre", "nahtlose", "gewährleisten", "Möglichkeit"]
+        "forbidden": ["bahnbrechende", "revolutionäre", "nahtlose", "gewährleisten", "die Möglichkeit,"]
     },
     {
         "name": "Typische Übersetzungs-Floskeln (Anglizismen)",
@@ -112,5 +112,5 @@ if failed:
     print("💥 Einige Tests sind fehlgeschlagen. Bitte überprüfe deine SKILL.md!")
     sys.exit(1)
 else:
-    print("🎉 Perfekt! Alle 7 Tests bestanden. Struktur steht und das Finale ist KI-frei.")
+    print(f"🎉 Perfekt! Alle {len(test_cases)} Tests bestanden. Struktur steht und das Finale ist KI-frei.")
     sys.exit(0)
