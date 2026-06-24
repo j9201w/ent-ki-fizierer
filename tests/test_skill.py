@@ -18,7 +18,7 @@ except FileNotFoundError:
     print("❌ Fehler: SKILL.md wurde nicht gefunden.")
     sys.exit(1)
 
-# 3. Alle 12 Testfälle voll integriert
+# 3. Alle 15 Testfälle voll integriert
 test_cases = [
     {
         "name": "Hohle Marketing-Superlative",
@@ -83,6 +83,21 @@ Geschwindigkeit ist wichtig.
 
 Wenn eine Seite zu langsam lädt, springen Nutzer ab und kommen nicht wieder.""",
         "forbidden": ["Geschwindigkeit ist wichtig"]
+    },
+    {
+        "name": "Copula-Vermeidung (kein schlichtes ist/sind)",
+        "input": "Die Galerie fungiert als zentrale Ausstellungsfläche und zählt mit über 300 Quadratmetern zu den größten Räumen des Vereins.",
+        "forbidden": ["fungiert als", "zählt mit über"]
+    },
+    {
+        "name": "Erzwungene Dreierfiguren (Rule of Three)",
+        "input": "Unser Ansatz steht für Effizienz, Exzellenz und Empowerment. Wir liefern Lösungen, die begeistern, überzeugen und bestehen.",
+        "forbidden": ["Effizienz, Exzellenz und Empowerment", "begeistern, überzeugen und bestehen"]
+    },
+    {
+        "name": "Vage Quellen- und Autoritäts-Zuschreibung",
+        "input": "Experten sind sich einig, dass dieser Ansatz die Zukunft ist. Studien zeigen, dass Nutzer ihn klar bevorzugen.",
+        "forbidden": ["Experten sind sich einig", "Studien zeigen"]
     }
 ]
 
@@ -141,5 +156,5 @@ if failed:
     print("💥 Einige Tests sind fehlgeschlagen. Bitte überprüfe deine SKILL.md!")
     sys.exit(1)
 else:
-    print("🎉 Perfekt! Alle 12 Tests bestanden. Struktur steht und das Finale ist KI-frei.")
+    print("🎉 Perfekt! Alle 15 Tests bestanden. Struktur steht und das Finale ist KI-frei.")
     sys.exit(0)
