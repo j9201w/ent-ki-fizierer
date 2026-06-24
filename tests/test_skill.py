@@ -18,12 +18,12 @@ except FileNotFoundError:
     print("❌ Fehler: SKILL.md wurde nicht gefunden.")
     sys.exit(1)
 
-# 3. Alle Testfälle voll integriert
+# 3. Alle 12 Testfälle voll integriert
 test_cases = [
     {
         "name": "Hohle Marketing-Superlative",
         "input": "Unsere bahnbrechende und revolutionäre Plattform bietet Ihnen die Möglichkeit, eine nahtlose Integration zu gewährleisten.",
-        "forbidden": ["bahnbrechende", "revolutionäre", "nahtlose", "gewährleisten", "die Möglichkeit,"]
+        "forbidden": ["bahnbrechende", "revolutionäre", "nahtlose", "gewährleisten", "Möglichkeit"]
     },
     {
         "name": "Typische Übersetzungs-Floskeln (Anglizismen)",
@@ -54,6 +54,35 @@ test_cases = [
         "name": "Schlechte Überleitungen & Fazit-Zusammenfassung",
         "input": "Darüber hinaus lässt sich sagen, dass das Tool hilft. Zusammenfassend lässt sich sagen: Die Zukunft wird großartig. Ich hoffe, das hilft!",
         "forbidden": ["Darüber hinaus lässt sich sagen", "Zusammenfassend lässt sich sagen", "Ich hoffe, das hilft"]
+    },
+    {
+        "name": "Synonym-Cycling (Elegante Variation)",
+        "input": "Der Protagonist verlässt die Stadt. Die Hauptfigur erreicht den Wald. Der besagte Held trifft einen Fremden. Die zentrale Gestalt der Erzählung kehrt schließlich heim.",
+        "forbidden": ["Die zentrale Gestalt der Erzählung", "Der besagte Held"]
+    },
+    {
+        "name": "Scheinanalysen mit Partizip I",
+        "input": "Die Fassade kombiniert Blau, Grün und Gold, was die Verbundenheit der Gemeinde mit der Landschaft widerspiegelt und ihre kulturelle Tiefe unterstreicht.",
+        "forbidden": ["was die Verbundenheit der Gemeinde", "kulturelle Tiefe unterstreicht"]
+    },
+    {
+        "name": "Schein-Spektren (unechte von-bis-Reihen)",
+        "input": "Unsere Reise reicht von der Idee bis zur Umsetzung, von der ersten Skizze bis zum fertigen Produkt.",
+        "forbidden": ["von der Idee bis zur Umsetzung", "von der ersten Skizze bis zum"]
+    },
+    {
+        "name": "Pseudo-Tiefe & Autoritäts-Floskeln",
+        "input": "Im Kern geht es nicht um Technik. Die eigentliche Frage ist, ob das Team bereit ist. Letztlich geht es um die richtige Haltung.",
+        "forbidden": ["Die eigentliche Frage ist", "Im Kern", "Letztlich geht es um"]
+    },
+    {
+        "name": "Fragment-Header (Aufwärm-Satz nach Überschrift)",
+        "input": """## Performance
+
+Geschwindigkeit ist wichtig.
+
+Wenn eine Seite zu langsam lädt, springen Nutzer ab und kommen nicht wieder.""",
+        "forbidden": ["Geschwindigkeit ist wichtig"]
     }
 ]
 
@@ -112,5 +141,5 @@ if failed:
     print("💥 Einige Tests sind fehlgeschlagen. Bitte überprüfe deine SKILL.md!")
     sys.exit(1)
 else:
-    print(f"🎉 Perfekt! Alle {len(test_cases)} Tests bestanden. Struktur steht und das Finale ist KI-frei.")
+    print("🎉 Perfekt! Alle 12 Tests bestanden. Struktur steht und das Finale ist KI-frei.")
     sys.exit(0)
