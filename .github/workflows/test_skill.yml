@@ -1,0 +1,32 @@
+name: Prompt Regression Testing
+
+# Der Test startet jedes Mal, wenn du etwas im Hauptzweig (main oder master) änderst
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest  # Startet einen virtuellen Linux-PC
+
+    steps:
+    - name: Code aus dem Repo laden
+      uses: actions/checkout@v4
+
+    - name: Python installieren
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
+    - name: Anthropic Bibliothek installieren
+      run: |
+        python -m pip install --upgrade pip
+        pip install anthropic
+
+    - name: Python Test-Skript ausführen
+      env:
+        # Hier reichen wir den geheimen API-Key aus Schritt 1 sicher an das Skript weiter
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: python tests/test_prompt.py
