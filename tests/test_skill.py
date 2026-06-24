@@ -43,7 +43,7 @@ for test in test_cases:
     try:
         # Anfrage an Claude senden
         message = client.messages.create(
-            model="claude-3-5-sonnet-20241022",  # Nutzt das aktuelle Claude 3.5 Sonnet
+            model="claude-sonnet-4-6",  # <-- Hier die neue ID eintragen
             max_tokens=1000,
             system=system_prompt,  # Hier füttern wir deinen Skill rein
             messages=[{"role": "user", "content": test["input"]}]
