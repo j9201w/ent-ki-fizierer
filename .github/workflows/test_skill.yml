@@ -1,11 +1,20 @@
 name: Prompt Regression Testing
 
-# Der Test startet jedes Mal, wenn du etwas im Hauptzweig (main oder master) änderst
+# Der Test startet nur, wenn das Skill, der Test selbst oder dieser Workflow geändert wird.
+# Änderungen an README, LICENSE o. Ä. lösen bewusst KEINEN API-Lauf aus.
 on:
   push:
     branches: [ main, master ]
+    paths:
+      - 'SKILL.md'
+      - 'tests/test_skill.py'
+      - '.github/workflows/test_skill.yml'
   pull_request:
     branches: [ main, master ]
+    paths:
+      - 'SKILL.md'
+      - 'tests/test_skill.py'
+      - '.github/workflows/test_skill.yml'
 
 jobs:
   run-tests:
