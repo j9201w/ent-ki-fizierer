@@ -1,12 +1,12 @@
 ---
 name: ent-ki-fizierer
-version: 2.1.0
+version: 2.2.0
 description: |
   Entfernt die typischen Merkmale KI-generierter deutscher Texte (LLM-Deutsch) und
   macht sie natürlich und menschlich. Einsetzen, wann immer ein deutscher Text
   lektoriert, entschärft oder „menschlicher" gemacht werden soll. Erkennt und behebt
   Nominalstil, synthetische Überleitungen, hohle Superlative, abgenutzte Metaphern,
-  Passiv und „man", Modalpartikel-Mangel, Monster-Komposita, Gedankenstrich-Inflation,
+  Passiv und „man", Modalpartikel-Mangel, Synonym-Cycling, Partizip-I-Scheinanalysen, unechte „von-bis"-Spektren, Pseudo-Tiefe-Floskeln, Fragment-Header, Monster-Komposita, Gedankenstrich-Inflation,
   Emoji- und Formatierungsmüll, Hedging, Pleonasmen sowie englisch-kontaminierte
   Typografie (falsche Anführungszeichen, Dezimalpunkt statt Komma, „In 2024").
   Nutze diesen Skill auch, wenn der Nutzer von „entkifizieren", „humanisieren",
@@ -143,71 +143,97 @@ Jedes Muster hat: worauf du achtest, warum es ein Problem ist, und ein Vorher/Na
 **Vorher:** Ich ging gestern ins Büro und sah, dass niemand da war.
 **Nachher:** Ich bin gestern ins Büro gegangen und hab gesehen, dass keiner da war.
 
+### 8. Elegante Variation / Synonym-Cycling
+**Worauf achten:** Dieselbe Entität wird in Folgesätzen krampfhaft umbenannt: „der Protagonist … die Hauptfigur … der Held … die zentrale Gestalt". Auch bei Firmen, Orten, Konzepten („das Unternehmen … der Konzern … der Betrieb").
+**Problem:** LLMs haben eine Wiederholungs-Strafe im Sampling und weichen über Synonym-Ketten aus. Menschen wiederholen das Wort oder greifen zum Pronomen. Das Dauervariieren wirkt nervös und gestelzt.
+**Vorher:** Der Protagonist verlässt die Stadt. Die Hauptfigur erreicht den Wald. Der Held trifft einen Fremden. Die zentrale Gestalt kehrt schließlich heim.
+**Nachher:** Der Protagonist verlässt die Stadt, erreicht den Wald, trifft einen Fremden und kehrt schließlich heim.
+
+### 9. Scheinanalysen mit Partizip I
+**Worauf achten:** Angehängte Partizip-I-Phrasen, die Tiefe simulieren: „…, was die Bedeutung unterstreicht", „…, die Vielfalt widerspiegelnd", „…, wodurch die Verbindung verdeutlicht wird", „…, was zur Gesamtwirkung beiträgt".
+**Problem:** Das englische „-ing"-Muster (highlighting, underscoring, reflecting) in deutscher Form. Hängt eine deutungsschwangere Floskel an, die nur den Hauptsatz nachbetet, statt etwas Neues zu sagen.
+**Hinweis (False Positive):** Legitime Partizipien als Attribut („die steigende Nachfrage", „ein überzeugendes Argument") sind kein Tell. Verdächtig ist die nachgestellte, kommentierende Phrase.
+**Vorher:** Die Fassade kombiniert Blau, Grün und Gold, was die Verbundenheit der Gemeinde mit der Landschaft widerspiegelt und ihre kulturelle Tiefe unterstreicht.
+**Nachher:** Die Fassade kombiniert Blau, Grün und Gold. Der Architekt wählte die Farben nach den Wildblumen der Region.
+
 ## B · PHRASEN, WÖRTER & METAPHERN (Blacklist)
 
-### 8. Synthetische Überleitungen
+### 10. Synthetische Überleitungen
 **Worauf achten:** *Darüber hinaus, Des Weiteren, Zudem, Ein weiterer wichtiger Aspekt ist, Nicht zu vergessen, Zusammenfassend lässt sich sagen, Im Endeffekt, Abschließend bleibt festzuhalten, Es ist wichtig zu beachten/betonen, dass.*
 **Problem:** Mechanische Scharniere, die KIs zwischen Absätze schrauben.
 **Vorher:** Darüber hinaus ist zu beachten, dass die Ladezeit eine Rolle spielt.
 **Nachher:** Auch die Ladezeit zählt.
 
-### 9. Storytelling-Floskeln & theatralische Haken
+### 11. Storytelling-Floskeln & theatralische Haken
 **Worauf achten:** *Tauchen wir ein in, Lassen Sie uns einen Blick werfen auf, Begeben wir uns auf eine Reise, Nicht nur X, sondern auch Y.* Ebenso vorgeschaltete Haken vor gewöhnlichen Aussagen („Ehrlich gesagt?", „Look, hier ist die Sache:").
 **Problem:** Künstliche Dramatik und Pseudo-Intimität vor einer simplen Aussage.
 **Vorher:** Tauchen wir ein in die Welt der Datenanalyse. Ehrlich gesagt? Sie ist wichtig.
 **Nachher:** Datenanalyse ist wichtig. Hier ist, warum.
 
-### 10. Formelhafte Einstiegsfragen
+### 12. Formelhafte Einstiegsfragen
 **Worauf achten:** „Kennst du das auch?", „Haben Sie sich jemals gefragt ...?", „Was wäre, wenn ...?".
 **Problem:** Faule rhetorische KI-Einstiege, die Nähe vortäuschen.
 **Vorher:** Kennst du das auch? Dein Postfach quillt über.
 **Nachher:** Dein Postfach quillt über. Das muss nicht sein.
 
-### 11. False Friends & Anglizismen-Syntax
+### 13. False Friends & Anglizismen-Syntax
 **Worauf achten:** „Am Ende des Tages", „Es macht Sinn", „Ich lade dich ein, X zu tun", „In 2024 startete ...".
 **Problem:** Aus dem Englischen durchgereichte Phrasen und Satzbauten, die im Deutschen falsch sind.
 **Vorher:** Am Ende des Tages macht es Sinn. In 2024 starteten wir das Projekt.
 **Nachher:** Unterm Strich ergibt es Sinn. 2024 starteten wir das Projekt.
 
-### 12. Hohle Superlative & Marketing-Buzzwords
+### 14. Hohle Superlative & Marketing-Buzzwords
 **Worauf achten:** *bahnbrechend, revolutionär, nahtlos, wegweisend, maßgeschneidert, unverzichtbar, zukunftsweisend, innovativ.*
 **Problem:** Inhaltsleere Werbe-Adjektive ohne Beleg. Ersetze sie durch konkrete Fakten.
 **Vorher:** Unsere bahnbrechende, nahtlose Plattform ist absolut unverzichtbar.
 **Nachher:** Unsere Plattform verbindet sich in unter fünf Minuten mit deinen Systemen und läuft ohne manuelle Pflege.
 
-### 13. Abgenutzte Metaphern & Aphorismus-Formeln
+### 15. Abgenutzte Metaphern & Aphorismus-Formeln
 **Worauf achten:** „Der Schlüssel zum Erfolg", „das Fundament für X legen", „das Herzstück", „ein zweischneidiges Schwert". Pseudo-Philosophie nach Schema „X ist das Y von Z" oder „Symmetrie ist die Sprache des Vertrauens".
 **Problem:** Sprachbilder, die tief klingen und nichts präzisieren.
 **Vorher:** Klare Kommunikation ist der Schlüssel zum Erfolg und das Herzstück jedes Teams.
 **Nachher:** Teams, die klar kommunizieren, machen weniger Fehler und liefern schneller.
 
-### 14. Hedging / Weichspüler
+### 16. Hedging / Weichspüler
 **Worauf achten:** *oftmals lässt sich sagen, in der Regel kann man annehmen, es scheint, als ob, möglicherweise könnte, unter Umständen.*
 **Problem:** Überqualifizierung, die jede Aussage entkernt.
 **Vorher:** Möglicherweise könnte man unter Umständen annehmen, dass die Maßnahme wirkt.
 **Nachher:** Die Maßnahme wirkt.
 
-### 15. Pleonasmus & Redundanz
+### 17. Pleonasmus & Redundanz
 **Worauf achten:** *zukunftsorientierte Innovationen, gemeinsame Zusammenarbeit, grundlegende Basis, echte Fakten, neue Neuerung.*
 **Problem:** Logische Dopplungen. Radikal auf das Kernwort kürzen.
 **Vorher:** Unsere gemeinsame Zusammenarbeit schafft eine grundlegende Basis für zukunftsorientierte Innovationen.
 **Nachher:** Unsere Zusammenarbeit schafft die Basis für Innovationen.
 
+### 18. Schein-Spektren / unechte „von … bis"-Reihen
+**Worauf achten:** „von X bis Y"-Konstruktionen, deren Pole keine echte Skala bilden: „von der Idee bis zur Umsetzung", „vom Start-up bis zum Konzern", „von der Theorie bis zur Praxis".
+**Problem:** LLMs spannen ein Pseudo-Spektrum auf, um Vollständigkeit vorzutäuschen. In Wahrheit sind die zwei Pole nur eine beliebige Aufzählung in Verkleidung.
+**Hinweis (False Positive):** Echte Bereiche bleiben unangetastet („von Montag bis Freitag", „von 0 bis 100 km/h", „von 1990 bis 2005"). Nur die unechte Skala fällt unter dieses Muster.
+**Vorher:** Unsere Reise durch die Daten reicht von den ersten Rohwerten bis zur fertigen Analyse, von der einzelnen Zahl bis zum großen Muster.
+**Nachher:** Wir bereiten die Rohdaten auf und werten sie aus. Am Ende steht eine Analyse, die die Muster sichtbar macht.
+
+### 19. Pseudo-Tiefe & Autoritäts-Floskeln
+**Worauf achten:** „Die eigentliche Frage ist", „im Kern", „im Grunde", „worauf es wirklich ankommt", „letztlich geht es darum", „die entscheidende Erkenntnis".
+**Problem:** Vorgeschaltete Tiefen-Gesten, die so tun, als schnitten sie durch den Lärm zu einer Wahrheit. Was folgt, ist meist eine gewöhnliche Aussage mit Zeremonie. Anders als Hedging (Muster 16, Weichspüler) täuscht dieses Muster nicht Unsicherheit, sondern falsche Bedeutsamkeit vor.
+**Vorher:** Im Kern geht es nicht um Technik. Die eigentliche Frage ist, ob das Team bereit ist. Letztlich geht es um die Haltung.
+**Nachher:** Die Technik ist nicht das Problem. Es kommt darauf an, ob das Team seine Gewohnheiten ändern will.
+
 ## C · TYPOGRAFIE & FORMAT (Lokalisierung)
 
-### 16. Deutsche Anführungszeichen erzwingen
+### 20. Deutsche Anführungszeichen erzwingen
 **Worauf achten:** Englische Anführungszeichen `"Text"` oder gerade `"Text"` im deutschen Fließtext.
 **Problem:** Englischzentrierte KI-Konvention. Im Deutschen gelten Gänsefüßchen `„Text"`.
 **Vorher:** Er nannte es ein "voller Erfolg".
 **Nachher:** Er nannte es einen „vollen Erfolg".
 
-### 17. Dezimalkomma & Zahlenformat
+### 21. Dezimalkomma & Zahlenformat
 **Worauf achten:** Dezimalpunkt im deutschen Text: `1.5 Millionen`, `95.4 %`.
 **Problem:** Im Deutschen trennt das Komma die Dezimalstelle. Falsches Format ist ein sofortiger Tell.
 **Vorher:** Die Conversion stieg um 12.4 % bei 1.5 Sekunden schnellerer Ladezeit.
 **Nachher:** Die Conversion stieg um 12,4 % bei 1,5 Sekunden schnellerer Ladezeit.
 
-### 18. Gedankenstrich-Sperre (harte Regel)
+### 22. Gedankenstrich-Sperre (harte Regel)
 **Worauf achten:** Lange Gedankenstriche `—` und `–` für künstliche Einschübe; auch ` -- `.
 **Problem:** Einer der zuverlässigsten KI-Tells. Der finale Text enthält **keine** Em- oder En-Dashes. Behandle das als harte Bedingung, nicht als „sparsam verwenden".
 **Auflösung in dieser Reihenfolge:** Punkt (neuer Satz), Komma (enger Einschub), Doppelpunkt (Erklärung), Klammern (echter Einschub) oder Satz umbauen.
@@ -215,13 +241,13 @@ Jedes Muster hat: worauf du achtest, warum es ein Problem ist, und ein Vorher/Na
 **Nachher:** Die Plattform, letztes Jahr eingeführt, wächst schnell.
 **Vor der finalen Ausgabe:** Scanne den Text auf `—` und `–`. Jeder Treffer heißt, der Entwurf ist nicht fertig.
 
-### 19. Monster-Komposita auflösen
+### 23. Monster-Komposita auflösen
 **Worauf achten:** Englische Begriffe in deutsche Bindestrich-Ketten gepresst: „AI-gestütztes-Projekt-Management-Software-Tool".
 **Problem:** Unlesbare Komposita-Türme. Elegant umformulieren.
 **Vorher:** Das KI-gestützte-Kunden-Beziehungs-Management-System-Tool.
 **Nachher:** Das Tool zur KI-gestützten Kundenverwaltung.
 
-### 20. Emoji-Inkontinenz & Formatierungsmüll
+### 24. Emoji-Inkontinenz & Formatierungsmüll
 **Worauf achten:** Mathematisch perfekt gesetzte Emojis (genau eines vor jedem Listenpunkt), horizontale Trennlinien `---` im Textfluss, exzessives Fetten zufälliger Keywords.
 **Problem:** Sichtbarer Formatierungsmüll, der nichts trägt.
 **Vorher:**
@@ -229,24 +255,38 @@ Jedes Muster hat: worauf du achtest, warum es ein Problem ist, und ein Vorher/Na
 **Nachher:**
 > Es läuft schneller, die Qualität ist besser, und die Nutzung wächst.
 
-### 21. Konsistente Gender-Stilistik
+### 25. Konsistente Gender-Stilistik
 **Worauf achten:** Wechselnde Gender-Formen im selben Text (mal Doppelpunkt, mal Sternchen, mal Generisches Maskulinum).
 **Problem:** Uneinheitlichkeit wirkt nachlässig oder zusammengestückelt.
 **Regel:** Erkenne den im Ausgangstext gewählten Gender-Stil und ziehe ihn präzise und fehlerfrei durch den gesamten Text durch. Ändere den Stil nicht eigenmächtig.
 
 ## D · STRUKTUR & KOMMUNIKATION
 
-### 22. Kein erzwungenes Essay-Gerüst
+### 26. Kein erzwungenes Essay-Gerüst
 **Worauf achten:** „Einleitung – Hauptteil – Fazit"-Schema bei einfachen oder werblichen Texten; Cliffhanger.
 **Problem:** KIs zwingen jedem Text dasselbe Aufsatz-Korsett auf, auch wo es nicht hingehört.
 **Vorher:** In diesem Text betrachten wir das Thema. Zunächst die Grundlagen. Abschließend ein Fazit.
 **Nachher:** [direkt mit der eigentlichen Aussage beginnen, ohne Gerüst-Ansage]
 
-### 23. Chatbot-Korrespondenz abschneiden
+### 27. Chatbot-Korrespondenz abschneiden
 **Worauf achten:** „Ich hoffe, das hilft!", „Lass mich wissen, wenn du Fragen hast!", „Gerne!", „Hier ist dein Text:".
 **Problem:** Als Inhalt eingefügte Chatbot-Höflichkeit, die nicht in den Text gehört.
 **Vorher:** Hier ist die Übersicht. Ich hoffe, das hilft! Sag Bescheid, wenn du mehr brauchst.
 **Nachher:** [nur die Übersicht selbst, ohne Rahmen]
+
+### 28. Fragment-Header / Aufwärm-Sätze
+**Worauf achten:** Eine Überschrift, gefolgt von einem Ein-Satz-Absatz, der die Überschrift nur umformuliert, bevor der echte Inhalt beginnt.
+**Problem:** LLMs schieben nach der Überschrift einen generischen Aufwärm-Satz ein. Er trägt nichts und bläht den Text auf.
+**Vorher:**
+> ## Performance
+>
+> Geschwindigkeit ist wichtig.
+>
+> Lädt eine Seite zu langsam, springen Nutzer ab.
+**Nachher:**
+> ## Performance
+>
+> Lädt eine Seite zu langsam, springen Nutzer ab.
 
 ---
 
@@ -275,9 +315,9 @@ Ein erfahrener menschlicher Autor trifft instinktiv einzelne Muster aus dem Kata
 Wenn ein Text übergeben wird, durchläufst du diese Schritte und **gibst alle vier Teile aus**:
 
 1. **Kalibrierungs-Pass (optional).** Falls eine Schreibprobe vorliegt, scanne sie zuerst (siehe Stil-Kalibrierung). Nicht im Chat ausgeben.
-2. **Draft-Pass (Entwurf).** Schreibe eine vollständige Umformulierung auf Basis aller Muster und der Erkennungs-Hinweise. Prüfe: Liest sie sich laut natürlich? Variiert die Satzlänge? Stimmt die Typografie? Stimmt das Register (Du/Sie, Perfekt im `--casual`)?
-3. **Audit-Pass (Selbstprüfung).** Frage dich: *„Was klingt an diesem Entwurf immer noch verdächtig nach KI?"* Antworte mit kurzen Stichpunkten zu verbliebenen Rhythmus-Monotonien, verdeckten Floskeln oder typografischen Rückständen. Prüfe im selben Schritt auf neu entstandene Grammatik- und Rechtschreibfehler, vor allem dort, wo du Sätze umgebaut oder Gedankenstriche aufgelöst hast.
-4. **Final-Pass.** Korrigiere die im Audit gefundenen Schwächen. Scanne den Text vor der Ausgabe zweifach: (a) auf Em-/En-Dashes — er enthält **keine** (siehe Muster 18); (b) auf Grammatik und Rechtschreibung — Groß-/Kleinschreibung, Kommasetzung, Kasus/Kongruenz, das/dass, ss/ß, Apostrophe. Der finale Text ist nach amtlicher deutscher Rechtschreibung fehlerfrei (siehe „Deine Aufgabe", Punkt 5). Umgangssprachliche Verkürzungen im `--casual`-Modus sind dabei kein Fehler.
+2. **Draft (Entwurf).** Schreibe eine vollständige Umformulierung auf Basis aller Muster und der Erkennungs-Hinweise. Prüfe: Liest sie sich laut natürlich? Variiert die Satzlänge? Stimmt die Typografie? Stimmt das Register (Du/Sie, Perfekt im `--casual`)?
+3. **Audit (Selbstprüfung).** Frage dich: *„Was klingt an diesem Entwurf immer noch verdächtig nach KI?"* Antworte mit kurzen Stichpunkten zu verbliebenen Rhythmus-Monotonien, verdeckten Floskeln oder typografischen Rückständen. Prüfe im selben Schritt auf neu entstandene Grammatik- und Rechtschreibfehler, vor allem dort, wo du Sätze umgebaut oder Gedankenstriche aufgelöst hast.
+4. **Final.** Korrigiere die im Audit gefundenen Schwächen. Scanne den Text vor der Ausgabe zweifach: (a) auf Em-/En-Dashes, er enthält **keine** (siehe Muster 22); (b) auf Grammatik und Rechtschreibung — Groß-/Kleinschreibung, Kommasetzung, Kasus/Kongruenz, das/dass, ss/ß, Apostrophe. Der finale Text ist nach amtlicher deutscher Rechtschreibung fehlerfrei (siehe „Deine Aufgabe", Punkt 5). Umgangssprachliche Verkürzungen im `--casual`-Modus sind dabei kein Fehler.
 
 Liefere danach optional eine kurze **Änderungsliste** (1–3 Sätze, was du entfernt hast).
 
